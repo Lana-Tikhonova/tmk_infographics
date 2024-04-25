@@ -17,11 +17,21 @@ body {
   background-color: #333;
   color: #fff;
   height: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 body.locked {
   overflow: hidden;
 }
 
+@-moz-document url-prefix() {
+  html {
+    scrollbar-width: none;
+  }
+}
 @font-face {
   font-family: "Montserrat";
   font-display: swap;
@@ -85,13 +95,14 @@ a {
 }
 
 .first_block {
-  background-image: url(../img/first_block_bg.svg);
+  background-image: url(../img/first_block_bg_3.svg);
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;
   position: relative;
   min-height: clamp(300px, 52.7777777778vw, 760px);
+  overflow: hidden;
 }
 
 .logo {
@@ -338,6 +349,7 @@ a {
   padding-top: clamp(300px, 45.4861111111vw, 655px);
   left: clamp(0px, 19.5833333333vw, 282px);
   width: clamp(30px, 7.0833333333vw, 102px);
+  padding-bottom: clamp(100px, 23.2638888889vw, 335px);
 }
 
 .drill_block_img {
@@ -462,7 +474,8 @@ a {
   z-index: 5;
 }
 .modal .close svg {
-  width: 90%;
+  width: clamp(12px, 1.1805555556vw, 17px);
+  height: clamp(12px, 1.1805555556vw, 17px);
   flex: 0 0 auto;
 }
 
@@ -546,6 +559,7 @@ a {
   list-style: none;
 }
 .modal_text ul li {
+  font-size: clamp(14px, 1.25vw, 18px);
   list-style: none;
   position: relative;
   padding-left: clamp(15px, 1.5277777778vw, 22px);
@@ -620,4 +634,38 @@ a {
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
+}
+
+.cloud {
+  position: absolute;
+}
+.cloud._1 {
+  top: clamp(20px, 4.9305555556vw, 71px);
+  left: clamp(200px, 57.3611111111vw, 826px);
+  width: clamp(100px, 24.4444444444vw, 352px);
+}
+.cloud._2 {
+  top: clamp(20px, 14.1666666667vw, 204px);
+  left: clamp(200px, 83.75vw, 1206px);
+  width: clamp(100px, 16.9444444444vw, 244px);
+}
+.cloud._3 {
+  top: clamp(20px, 28.4722222222vw, 410px);
+  left: clamp(200px, 20vw, 288px);
+  width: clamp(100px, 20.625vw, 297px);
+}
+.cloud._4 {
+  top: clamp(20px, 3.8194444444vw, 55px);
+  left: clamp(-3px, -0.2083333333vw, -1px);
+  width: clamp(100px, 25.9722222222vw, 374px);
+}
+
+.house {
+  position: absolute;
+  z-index: 2;
+}
+.house._1 {
+  top: clamp(0px, 17.0138888889vw, 245px);
+  left: clamp(50px, 18.4027777778vw, 265px);
+  width: clamp(50px, 9.5138888889vw, 137px);
 }

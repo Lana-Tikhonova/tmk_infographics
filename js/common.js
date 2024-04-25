@@ -10,6 +10,25 @@
  }
 
  window.addEventListener('load', (e) => {
+
+     var rellax = new Rellax('.rellax');
+
+     AOS.init({
+         easing: 'ease',
+         delay: 100,
+         once: true,
+         duration: 1000,
+         offset: 150,
+         disable: 'mobile'
+     });
+
+     var scene = document.querySelectorAll('.parallax');
+     if (scene) {
+         scene.forEach(element => {
+             var parallaxInstance = new Parallax(element)
+         });
+     }
+
      const body = document.querySelector('body');
      let getScrollWidth = () => window.innerWidth - document.documentElement.offsetWidth;
      let browserScrollWidth = getScrollWidth();

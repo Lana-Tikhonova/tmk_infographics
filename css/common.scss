@@ -8,10 +8,6 @@
 	outline: none;
 }
 
-// html {
-// 	height: 100%;
-// }
-
 body {
 	display: flex;
 	flex-direction: column;
@@ -22,9 +18,21 @@ body {
 	background-color: #333;
 	color: #fff;
 	height: 100%;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
 	&.locked {
 		overflow: hidden;
+	}
+}
+
+@-moz-document url-prefix() {
+	html {
+		scrollbar-width: none;
 	}
 }
 
@@ -86,13 +94,13 @@ a {
 /* Вычисление размеров*/
 @function compute($min, $max) {
 	/*  число изначальное (как в фигме на разрешении 1440) / на на ширину страницы (1440 = 14.4)*/
-	$number: $max / 14.4;
+	$number: calc($max / 14.4);
 	@return clamp(#{$min}px, #{$number}vw, #{$max}px);
 }
 
 // для отрицательных значений
 @function compute2($max, $min) {
-	$number: $max / 14.4;
+	$number: calc($max / 14.4);
 	@return clamp(#{$max}px, #{$number}vw, #{$min}px);
 }
 
@@ -111,13 +119,14 @@ a {
 }
 
 .first_block {
-	background-image: url(../img/first_block_bg.svg);
+	background-image: url(../img/first_block_bg_3.svg);
 	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;
 	z-index: 1;
 	position: relative;
 	min-height: compute(300, 760);
+	overflow: hidden;
 }
 
 .logo {
@@ -422,6 +431,8 @@ a {
 	padding-top: compute(300, 655);
 	left: compute(0, 282);
 	width: compute(30, 102);
+	padding-bottom: compute(100, 335);
+
 }
 
 .drill_block_img {
@@ -564,7 +575,8 @@ a {
 		z-index: 5;
 
 		svg {
-			width: 90%;
+			width: compute(12, 17);
+			height: compute(12, 17);
 			flex: 0 0 auto;
 		}
 
@@ -650,6 +662,7 @@ a {
 		list-style: none;
 
 		li {
+			font-size: compute(14, 18);
 			list-style: none;
 			position: relative;
 			padding-left: compute(15, 22);
@@ -692,99 +705,6 @@ a {
 	}
 }
 
-// @media screen and (max-width:992px) {
-// 	@function compute3($min, $max) {
-// 		/*  число изначальное (как в фигме на разрешении 1440) / на на ширину страницы (1440 = 14.4)*/
-// 		$number: $max / 9.92;
-// 		@return clamp(#{$min}px, #{$number}vw, #{$max}px);
-// 	}
-
-// 	.item_block {
-// 		margin-right: 20px;
-// 		// max-width: compute(400, 360);
-// 	}
-
-// 	.scale_block {
-// 		padding-top: compute(300, 765);
-// 	}
-
-// 	.img_wrapper {
-// 		width: compute(50, 150);
-// 	}
-
-// 	// .item_block_list .item_block {
-// 	// 	&:nth-child(1) {
-// 	// 		padding-top: compute3(50, 84);
-// 	// 	}
-
-// 	// 	&:nth-child(2) {
-// 	// 		padding-top: compute3(50, 190);
-// 	// 	}
-
-// 	// 	&:nth-child(3) {
-// 	// 		padding-top: compute3(50, 438);
-// 	// 	}
-
-// 	// 	&:nth-child(4) {
-// 	// 		padding-top: compute3(50, 350);
-// 	// 	}
-
-// 	// 	&:nth-child(5) {
-// 	// 		padding-top: compute3(50, 585);
-// 	// 	}
-
-// 	// 	&:nth-child(6) {
-// 	// 		padding-top: compute3(50, 237);
-// 	// 	}
-
-// 	// 	&:nth-child(7) {
-// 	// 		padding-top: compute(50, 550);
-// 	// 	}
-
-// 	// 	&:nth-child(8) {
-// 	// 		padding-top: compute(50, 158);
-// 	// 	}
-
-// 	// 	&:nth-child(9) {
-// 	// 		padding-top: compute(50, 1283);
-// 	// 	}
-
-// 	// 	&:nth-child(10) {
-// 	// 		padding-top: compute(50, 1567);
-// 	// 	}
-
-// 	// 	&:nth-child(11) {
-// 	// 		padding-top: compute(50, 603);
-// 	// 	}
-
-// 	// 	&:nth-child(12) {
-// 	// 		padding-top: compute(50, 950);
-// 	// 	}
-
-// 	// 	&:nth-child(13) {
-// 	// 		padding-top: compute(50, 782);
-// 	// 	}
-
-// 	// 	&:nth-child(14) {
-// 	// 		padding-top: compute(50, 722);
-// 	// 	}
-
-// 	// 	&:nth-child(15) {
-// 	// 		padding-top: compute(0, 0);
-// 	// 		display: flex;
-// 	// 		justify-content: flex-end;
-// 	// 	}
-
-// 	// }
-
-// 	.btn {
-// 		padding: compute(5, 5) compute(5, 20);
-// 	}
-
-// 	.btn:after {
-// 		width: compute(5, 25);
-// 	}
-// }
 .infographic_mobile {
 	display: none;
 	align-items: center;
@@ -827,4 +747,43 @@ a {
 	font-style: normal;
 	font-weight: 500;
 	line-height: 150%;
+}
+
+.cloud {
+	position: absolute;
+
+	&._1 {
+		top: compute(20, 71);
+		left: compute(200, 826);
+		width: compute(100, 352);
+	}
+
+	&._2 {
+		top: compute(20, 204);
+		left: compute(200, 1206);
+		width: compute(100, 244);
+	}
+
+	&._3 {
+		top: compute(20, 410);
+		left: compute(200, 288);
+		width: compute(100, 297);
+	}
+
+	&._4 {
+		top: compute(20, 55);
+		left: compute2(-3, -1);
+		width: compute(100, 374);
+	}
+}
+
+.house {
+	position: absolute;
+	z-index: 2;
+
+	&._1 {
+		top: compute(0, 245);
+		left: compute(50, 265);
+		width: compute(50, 137);
+	}
 }
