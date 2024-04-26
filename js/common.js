@@ -19,7 +19,7 @@
          once: true,
          duration: 1000,
          offset: 150,
-         disable: 'mobile'
+         //  disable: 'mobile'
      });
 
      var scene = document.querySelectorAll('.parallax');
