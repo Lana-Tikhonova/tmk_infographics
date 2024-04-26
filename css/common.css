@@ -267,6 +267,7 @@ a {
 .image._12 {
   width: clamp(20px, 28.125vw, 405px);
   left: clamp(20px, 15.2083333333vw, 219px);
+  mix-blend-mode: multiply;
 }
 
 .item_block {
