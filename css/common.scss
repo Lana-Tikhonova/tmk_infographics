@@ -671,10 +671,10 @@ a {
 		list-style: none;
 
 		li {
-			font-size: compute(14, 18);
 			list-style: none;
 			position: relative;
 			padding-left: compute(15, 22);
+			display: flex;
 
 			&:before {
 				content: '';

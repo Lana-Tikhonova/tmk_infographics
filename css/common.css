@@ -567,10 +567,10 @@ a {
   list-style: none;
 }
 .modal_text ul li {
-  font-size: clamp(14px, 1.25vw, 18px);
   list-style: none;
   position: relative;
   padding-left: clamp(15px, 1.5277777778vw, 22px);
+  display: flex;
 }
 .modal_text ul li:before {
   content: "";
