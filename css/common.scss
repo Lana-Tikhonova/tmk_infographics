@@ -447,10 +447,13 @@ a {
 .drill_block_img {
 	position: sticky;
 	top: 0;
+	display: flex;
+	justify-content: center;
 
 	img {
 		position: relative;
 		top: -3px;
+		max-height: 90vh;
 	}
 }
 
