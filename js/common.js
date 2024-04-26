@@ -13,12 +13,19 @@
 
      var rellax = new Rellax('.rellax');
 
+     let offset
+     if (window.innerWidth > 991) {
+         offset = 150;
+     } else {
+         offset = 20;
+     }
+
      AOS.init({
          easing: 'ease',
          delay: 100,
          once: true,
          duration: 1000,
-         offset: 150,
+         offset: offset,
          //  disable: 'mobile'
      });
 
