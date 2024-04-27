@@ -745,6 +745,12 @@ a {
 	}
 }
 
+@media screen and (max-width:600px) {
+	.infographic_mobile {
+		display: flex;
+	}
+}
+
 .infographic_mobile_title {
 	font-size: 21px;
 	font-style: normal;
