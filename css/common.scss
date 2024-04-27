@@ -806,3 +806,9 @@ a {
 		width: compute(50, 137);
 	}
 }
+
+@media screen and (max-width:1100px) {
+	.modal_text {
+		font-size: 14px;
+	}
+}

@@ -687,3 +687,9 @@ a {
   left: clamp(50px, 18.4027777778vw, 265px);
   width: clamp(50px, 9.5138888889vw, 137px);
 }
+
+@media screen and (max-width: 1100px) {
+  .modal_text {
+    font-size: 14px;
+  }
+}
