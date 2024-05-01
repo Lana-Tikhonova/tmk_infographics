@@ -1,14 +1,3 @@
-//  //Заглушка для мобилок
-//  const infographicPlug = document.querySelector('.infographic_mobile');
-
-//  function getWindowOrientation(element) {
-//      if (window.innerWidth < 600) {
-//          element.classList.add('show');
-//      } else {
-//          element.classList.remove('show');
-//      }
-//  }
-
 window.addEventListener('load', (e) => {
 
     var rellax = new Rellax('.rellax');
@@ -26,7 +15,6 @@ window.addEventListener('load', (e) => {
         once: true,
         duration: 1000,
         offset: offset,
-        //  disable: 'mobile'
     });
 
     var scene = document.querySelectorAll('.parallax');
@@ -37,8 +25,6 @@ window.addEventListener('load', (e) => {
     }
 
     const body = document.querySelector('body');
-    let getScrollWidth = () => window.innerWidth - document.documentElement.offsetWidth;
-    let browserScrollWidth = getScrollWidth();
 
     document.addEventListener('click', (e) => {
         const target = e.target;
@@ -54,9 +40,6 @@ window.addEventListener('load', (e) => {
             })
             selectedModalText.classList.add('show');
             body.classList.add('locked');
-            if (getScrollWidth() == 0) {
-                body.style.paddingRight = `${browserScrollWidth}px`;
-            }
         }
 
         function closeModal() {
@@ -64,7 +47,6 @@ window.addEventListener('load', (e) => {
             document.querySelector('.modal.show').classList.remove('show');
             body.classList.remove('locked');
             document.querySelector('.modal_body.show').classList.remove('show');
-            body.style.paddingRight = ``;
         }
         if (target.closest('[data-modal-close]')) {
             closeModal()
@@ -73,12 +55,4 @@ window.addEventListener('load', (e) => {
             closeModal()
         }
     });
-
-    //  //Заглушка для мобилок
-    //  if (infographicPlug) {
-    //      getWindowOrientation(infographicPlug);
-    //      window.addEventListener('resize', (e) => {
-    //          getWindowOrientation(infographicPlug);
-    //      });
-    //  }
 });
